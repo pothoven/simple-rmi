@@ -1,0 +1,6 @@
+grant codeBase "file:simple-client.jar" {
+    permission java.security.AllPermission;
+};
+grant codeBase "file:simple-server.jar" {
+    permission java.security.AllPermission;
+};

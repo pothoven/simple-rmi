@@ -1,0 +1,25 @@
+<project  default='jar'>
+	<property name='build' value='bin'/>
+	
+    <target name="clean">
+        <delete dir="${build}"/>
+    </target>
+	
+	<target name='compile'>
+	    <rmic classname="SimpleImpl" base="${build}"/>
+	</target>
+		
+    <target name="jar" depends='compile'>
+        <jar destfile="simple-client.jar" basedir="${build}">
+            <manifest>
+                <attribute name="Main-Class" value="SimpleClient"/>
+            </manifest>
+        </jar>
+        <jar destfile="simple-server.jar" basedir="${build}">
+            <manifest>
+                <attribute name="Main-Class" value="SimpleServer"/>
+            </manifest>
+        </jar>
+    </target>
+	
+</project>
