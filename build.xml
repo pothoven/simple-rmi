@@ -5,9 +5,11 @@
         <delete dir="${build}"/>
     </target>
 	
-	<target name='compile'>
-	    <rmic classname="SimpleImpl" base="${build}"/>
-	</target>
+    <target name='compile'>
+        <mkdir dir="${build}"/>
+        <javac srcdir="src" destdir="${build}"/>
+        <rmic classname="SimpleImpl" base="${build}"/>
+    </target>
 		
     <target name="jar" depends='compile'>
         <jar destfile="simple-client.jar" basedir="${build}">
